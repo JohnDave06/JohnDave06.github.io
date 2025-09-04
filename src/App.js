@@ -9,7 +9,7 @@ function App() {
   // ✅ URL dinámica para desarrollo y producción
   const API_BASE_URL = window.location.hostname.includes('localhost')
   ? 'http://localhost:8000'
-  : 'https://mysql-production-e60d.up.railway.app';
+  : 'mysql://root:pVukANyjEJGMVnPhRmnFliucTQIthvkD@mysql.railway.internal:3306/railway';
 
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
