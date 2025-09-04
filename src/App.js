@@ -7,9 +7,9 @@ function App() {
   const [error, setError] = useState('');
 
   // ✅ URL dinámica para desarrollo y producción
-  const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:8000' 
-    : 'https://mysql-production-e60d.up.railway.app';
+  const API_BASE_URL = window.location.hostname.includes('localhost')
+  ? 'http://localhost:8000'
+  : 'https://mysql-production-e60d.up.railway.app';
 
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
@@ -26,6 +26,8 @@ function App() {
       const response = await fetch(`${API_BASE_URL}/api/registros/analizar_csv/`, {
         method: 'POST',
         body: formData,
+        mode: 'cors',
+        credentials: 'omit'
       });
 
       if (!response.ok) throw new Error('Error al analizar el archivo');
