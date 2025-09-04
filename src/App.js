@@ -6,6 +6,11 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // ✅ URL dinámica para desarrollo y producción
+  const API_BASE_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:8000' 
+    : 'mysql-production-e60d.up.railway.app';  // ← Cambia por tu URL real de Railway
+
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -17,7 +22,8 @@ function App() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:8000/api/registros/analizar-csv/', {
+      // ✅ Usa la URL dinámica
+      const response = await fetch(`${API_BASE_URL}/api/registros/analizar-csv/`, {
         method: 'POST',
         body: formData,
       });
