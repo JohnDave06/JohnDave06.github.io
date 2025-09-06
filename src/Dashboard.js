@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
 
-const API_BASE = process.env.REACT_APP_API || "http://127.0.0.1:8000/api";
+const API_BASE = process.env.REACT_APP_API || "https://mysql-production-e60d.up.railway.app";
 
 export default function Dashboard() {
   const [table, setTable] = useState("dataset");
