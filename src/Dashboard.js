@@ -3,14 +3,13 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContaine
 import Papa from "papaparse";
 
 function summarizeNulls(rows, columns) {
-  const total = rows.length || 0;
   const res = columns.map((col) => {
     let nulls = 0;
     for (const r of rows) {
       const v = r[col];
       if (v === null || v === undefined || v === "" || (typeof v === 'number' && Number.isNaN(v))) nulls++;
     }
-    const percent = total === 0 ? 0 : (nulls / total) * 100;
+    const percent = rows.length === 0 ? 0 : (nulls / rows.length) * 100;
     return { column: col, nulls, percent };
   });
   return res;
