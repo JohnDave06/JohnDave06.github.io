@@ -105,7 +105,6 @@ export default function Dashboard() {
 
   // prepare sorted and colored versions
   const nullsPrepared = useMemo(() => {
-    const total = rows.length || 0;
     return [...nulls].sort((a, b) => b.percent - a.percent).map(n => {
       const p = n.percent;
       let color = '#82ca9d';
