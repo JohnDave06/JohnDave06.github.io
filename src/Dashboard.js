@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Cell } from "recharts";
 import Papa from "papaparse";
+import "./Dashboard.css";
 
 function summarizeNulls(rows, columns) {
   const res = columns.map((col) => {
@@ -140,11 +141,11 @@ export default function Dashboard() {
 
   return (
     <div style={{ padding: 20, maxWidth: 1100, margin: "0 auto" }}>
-      <h1>Data Quality Dashboard (Client-side)</h1>
+      <h1>Dashboard</h1>
 
       <div style={{ display: "flex", gap: 12, marginBottom: 12, alignItems: "center" }}>
         <label style={{ padding: 8, border: "1px solid #ccc", cursor: "pointer" }}>
-          Subir CSV (se procesa en el navegador)
+          Subir CSV
           <input type="file" accept=".csv" style={{ display: "none" }} onChange={onUpload} />
         </label>
         <div style={{ marginLeft: 8 }}>{fileName ? `Archivo: ${fileName} (${rows.length} filas)` : "Ningún archivo cargado"}</div>

@@ -1,0 +1,74 @@
+:root{
+  --bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb; /* blue */
+  --danger: #dc2626;
+  --warn: #f59e0b;
+  --card-bg: #f8fafc;
+  --card-border: #e6edf8;
+  --shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+body {
+  background: var(--bg);
+}
+
+.dashboard-container{
+  padding: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111827;
+}
+
+h1{
+  font-size: 28px;
+  margin: 6px 0 18px 0;
+  font-weight: 700;
+}
+
+.file-row{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.upload-label{
+  display:inline-block;
+  padding:8px 12px;
+  background: linear-gradient(180deg,#ffffff,#f3f7ff);
+  border:1px solid var(--card-border);
+  border-radius:6px;
+  cursor:pointer;
+  box-shadow: var(--shadow);
+  font-weight:600;
+  color:var(--accent);
+}
+
+.file-info{ color: var(--muted); }
+
+.kpis{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+.kpi-card{ background:var(--card-bg); border:1px solid var(--card-border); padding:12px 16px; border-radius:8px; min-width:160px; box-shadow:var(--shadow); }
+.kpi-caption{ font-size:12px; color:var(--muted); }
+.kpi-value{ font-size:20px; font-weight:700; margin-top:6px; }
+
+.section{ margin-top:28px; }
+.section h2{ font-size:20px; margin-bottom:12px; }
+
+.chart-wrap{ width:100%; height:320px; background: linear-gradient(180deg, #fff, #fbfdff); border-radius:8px; padding:10px; border:1px solid #f0f5fb; }
+
+select{ padding:6px 8px; border-radius:6px; border:1px solid #dbeafe; }
+
+.table-preview{ margin-top:12px; border-radius:8px; overflow:auto; border:1px solid #eef2ff; }
+.table-preview table{ width:100%; border-collapse:collapse; font-size:13px; }
+.table-preview th{ text-align:left; padding:8px; background:#fbfdff; border-bottom:1px solid #eef2ff; }
+.table-preview td{ padding:8px; border-bottom:1px solid #f7fbff; }
+
+.small-muted{ color:var(--muted); font-size:13px; }
+
+/* responsive */
+@media (max-width:800px){
+  .kpis{ flex-direction:column; }
+  .chart-wrap{ height:260px }
+}
